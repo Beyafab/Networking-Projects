@@ -1,2 +1,20 @@
+## 📌 Understanding Static Routing
+
+In this lab, I explored Static Routing, a method where network administrators manually configure the routing table of a router. Unlike dynamic routing protocols (like OSPF or EIGRP) that automatically discover paths, static routing requires precise manual entry of network destinations and next-hops.
+
+🔑 Key Concepts Covered:
+Next-Hop Routing: Specifying the IP address of the next router in the path (e.g., ip route 192.168.2.0 255.255.255.0 12.12.12.2).
+
+Exit-Interface Routing: Specifying the local outgoing interface (e.g., ip route 192.168.2.0 255.255.255.0 s2/0).
+
+Administrative Distance (AD): Static routes have a default AD of 1, making them highly trusted by the router.
+
+⚖️ Why Use Static Routing?
+Pros: No CPU/RAM overhead, no bandwidth consumed by routing updates, and provides high security since routes are explicitly controlled by the admin.
+
+Cons: Does not scale well for large networks and lacks automatic failover (if a link goes down, the route stays in the table unless configured with tracking).
+
+🧪 Lab Implementation:
+Using a daisy-chain topology (R1 — R2 — R3), I configured static routes to ensure full reachability between all three LANs (192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24). I verified the configurations using show ip route static and confirmed end-to-end connectivity using ping and traceroute.
 #challengs i encountered 
 forgot to set default gateways for the pcs. so pinging between pcs didn't work first time
