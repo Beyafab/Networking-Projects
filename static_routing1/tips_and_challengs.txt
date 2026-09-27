@@ -16,5 +16,7 @@ Cons: Does not scale well for large networks and lacks automatic failover (if a 
 
 🧪 Lab Implementation:
 Using a daisy-chain topology (R1 — R2 — R3), I configured static routes to ensure full reachability between all three LANs (192.168.1.0/24, 192.168.2.0/24, 192.168.3.0/24). I verified the configurations using show ip route static and confirmed end-to-end connectivity using ping and traceroute.
+
+
 #challengs i encountered 
 forgot to set default gateways for the pcs. so pinging between pcs didn't work first time
