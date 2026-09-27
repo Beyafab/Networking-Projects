@@ -1,4 +1,4 @@
-# CCNA 200-301 - Lab 4: Static Routing
+# Static Routing
 
 ## 📌 Lab Overview
 This lab demonstrates the configuration of IPv4 static routes on Cisco routers to achieve full network reachability. It covers two methods of static routing: **Next-Hop** (specifying the next router's IP) and **Exit-Interface** (specifying the local outgoing interface).
