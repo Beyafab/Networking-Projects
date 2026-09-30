@@ -1,0 +1,30 @@
+# tips_and_challengs.txt
+
+Tips and Challenges
+===================
+
+Tips:
+- Configure `clock rate` only on the DCE side of a serial link. In this lab, R1 Serial0/0 is DCE with clock rate 768000.
+- Always use `no shutdown` on interfaces after configuration.
+- Verify interface names before applying routes or ACLs. R3 uses Serial0/1 for the serial link, but the transcript's default route references Serial0/0.
+- Check for duplicate IP addresses. The transcript shows R1 and R3 both configured as 172.16.1.2. The intended addressing is R1 = 172.16.1.1 and R3 = 172.16.1.2.
+- Use `ping ... source <interface>` to test ACL behavior from specific loopback addresses.
+- Calculate wildcard masks as 255.255.255.255 minus the subnet mask.
+- Place standard ACLs close to the destination when possible. Here, ACL 10 is applied inbound on R1 Serial0/0 to filter traffic from R3.
+- Use `access-list <number> remark <text>` to document ACL entries.
+- Remember ACL order matters. Place more specific or deny statements before broad permits as needed.
+- If you need the serial subnet to communicate, explicitly permit it. Otherwise it is implicitly denied.
+
+Challenges:
+- Duplicate IP: R1 and R3 both show 172.16.1.2 in the transcript. Correct R1 to 172.16.1.1.
+- Interface mismatch: R3 default route uses Serial0/0, but the configured interface is Serial0/1.
+- ACL implicit deny: After ACL 10 is applied, pings from R3's default source (172.16.1.2) fail with U.U.U because 172.16.1.0/26 is not permitted.
+- Loopback20 is intentionally denied, so pings sourced from Loopback20 fail with U.U.U.
+- Wildcard mask confusion: /25, /28, and /29 masks produce 0.0.0.127, 0.0.0.15, and 0.0.0.7.
+- U.U.U interpretation: Usually means the packet was administratively prohibited by an ACL, not a routing failure.
+- Implicit deny does not show as a match in `show access-lists`; only explicit entries show match counts.
+
+Quick Wildcard Reference:
+- /25  -> 255.255.255.128 -> 0.0.0.127
+- /28  -> 255.255.255.240 -> 0.0.0.15
+- /29  -> 255.255.255.248 -> 0.0.0.7
