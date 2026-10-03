@@ -1,0 +1,36 @@
+
+```text
+# tips_and_challengs.txt
+
+Tips and Challenges
+===================
+
+Tips:
+- Use named ACLs for easier identification and documentation. Syntax: `ip access-list standard <name>` then enter statements.
+- Add `remark` statements to document each ACL entry. This is optional but recommended.
+- Standard ACLs should be placed as close to the destination as possible. Here, ACL is applied inbound on R1 Serial0/0.
+- Remember the implicit deny at the end of every ACL. If you need to permit a subnet, you must explicitly permit it.
+- In this lab, the Serial0/0 subnet (172.16.1.0/26) must be explicitly permitted, otherwise traffic from R3's default serial IP will be denied.
+- Use `ping <ip> source <interface>` to test ACL behavior from specific source addresses.
+- If you see `U.U.U`, it usually means the packet was administratively prohibited by an ACL on the other end.
+- Verify ACL application with `show ip access-lists <name>` and `show ip interface serial 0/0`.
+- Wildcard mask = 255.255.255.255 minus the subnet mask.
+  - /25 -> 0.0.0.127
+  - /26 -> 0.0.0.63
+  - /28 -> 0.0.0.15
+  - /29 -> 0.0.0.7
+
+Challenges:
+- Duplicate IP in transcript: R1 Serial0/0 and R3 Serial0/1 both show 172.16.1.2. Correct addressing is R1 = 172.16.1.1, R3 = 172.16.1.2.
+- Interface mismatch: R3 default route references serial0/0, but the actual interface is serial0/1. Ensure correct interface names.
+- ACL order matters: Deny statements for Loopback10 and Loopback30 are placed before permits, but since they are specific, order is fine. However, if a broad permit were first, it would override denies.
+- Forgetting to permit the Serial0/0 subnet will cause all pings from R3's serial interface to fail with U.U.U.
+- Named ACLs vs numbered ACLs: Named ACLs use names, numbered use numbers. Both function similarly. Named ACLs allow editing and re-sequencing.
+- Implicit deny does not show as a match in `show ip access-lists`. Only explicit entries show match counts.
+- Be careful with wildcard masks; they are not subnet masks. Calculate correctly.
+
+Quick Wildcard Reference:
+- /25 -> 255.255.255.128 -> 0.0.0.127
+- /26 -> 255.255.255.192 -> 0.0.0.63
+- /28 -> 255.255.255.240 -> 0.0.0.15
+- /29 -> 255.255.255.248 -> 0.0.0.7
