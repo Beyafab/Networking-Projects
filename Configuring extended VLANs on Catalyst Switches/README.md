@@ -1,4 +1,4 @@
-# Lab 2: Configuring Extended VLANs on Catalyst Switches
+#       Configuring Extended VLANs on Catalyst Switches
 
 ## 🎯 Lab Objective
 The objective of this lab exercise is to learn and understand how to configure extended-range VLANs (1006–4096) on Cisco Catalyst IOS switches, and how to use Cisco IOS commands to validate your configuration.
