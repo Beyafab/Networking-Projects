@@ -49,21 +49,21 @@ IP-address tables below as the source of truth for the lab addressing.*
 
   Router   Interface   IPv4 address       Purpose
   -------- ----------- ------------------ --------------------
-  R1       Fa0/0       `10.10.10.1/24`    Shared transit LAN
-  R1       Fa1/1       `14.14.14.1/24`    Link to R4
+  R1       Gig0/0/0    `10.10.10.1/24`    Shared transit LAN
+  R1       Se0/1/0     `14.14.14.1/24`    Link to R4
   R1       Loopback0   `1.1.1.1/24`       Router loopback
-  R2       Fa0/0       `10.10.10.2/24`    Shared transit LAN
-  R2       Fa1/1       `192.168.2.2/24`   PC2 LAN gateway
+  R2       Gig0/0/1    `10.10.10.2/24`    Shared transit LAN
+  R2       Gig0/0/1    `192.168.2.2/24`   PC2 LAN gateway
   R2       Loopback0   `2.2.2.2/24`       Router loopback
-  R3       Fa0/0       `10.10.10.3/24`    Shared transit LAN
-  R3       Fa1/1       `192.168.3.3/24`   PC3 LAN gateway
+  R3       Gig0/0/0    `10.10.10.3/24`    Shared transit LAN
+  R3       Gig0/0/1    `192.168.3.3/24`   PC3 LAN gateway
   R3       Loopback0   `3.3.3.3/24`       Router loopback
-  R4       Fa0/0       `14.14.14.4/24`    Link to R1
-  R4       Fa1/0       `192.168.4.4/24`   PC4 LAN gateway
-  R4       Fa1/1       `45.45.45.4/24`    Link to R5
+  R4       Se0/1/0     `14.14.14.4/24`    Link to R1
+  R4       Gig/0       `192.168.4.4/24`   PC4 LAN gateway
+  R4       Se0/1/1     `45.45.45.4/24`    Link to R5
   R4       Loopback0   `4.4.4.4/24`       Router loopback
-  R5       Fa0/0       `45.45.45.5/24`    Link to R4
-  R5       Fa0/1       `192.168.5.5/24`   PC5 LAN gateway
+  R5       Se0/1/0     `45.45.45.5/24`    Link to R4
+  R5       Gig0/0/0    `192.168.5.5/24`   PC5 LAN gateway
   R5       Loopback0   `5.5.5.5/24`       Router loopback
 
 ### PC addressing
