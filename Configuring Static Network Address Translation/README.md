@@ -35,7 +35,7 @@ Static NAT provides a **1-to-1 permanent mapping** between a private IP address 
 | :--- | :--- | :--- | :--- | :--- |
 | **R1** | Serial 0/0 | `192.168.254.1` | `255.255.255.0` | Outside Host |
 | **R3** | Serial 0/0 | `192.168.254.2` | `255.255.255.0` | `ip nat outside` |
-| **R3** | FastEthernet 0/0 | `10.2.2.2` | `255.255.255.224` | `ip nat inside` (Default GW) |
+| **R3** | GigabitEthernet 0/0/0 | `10.2.2.2` | `255.255.255.224` | `ip nat inside` (Default GW) |
 | **Sw1** | Interface VLAN 50 | `10.2.2.4` | `255.255.255.224` | Inside Local Host |
 | **NAT Static** | *Virtual Mapping* | `192.168.254.4` | N/A | Inside Global Address |
 
@@ -97,7 +97,7 @@ R3(config-if)# end
 ### Task 6: Static NAT Configuration (R3)
 ```cisco
 R3# configure terminal
-R3(config)# interface FastEthernet 0/0
+R3(config)# interface GigabitEthernet 0/0/0
 R3(config-if)# ip nat inside
 R3(config-if)# exit
 R3(config)# interface Serial 0/0
