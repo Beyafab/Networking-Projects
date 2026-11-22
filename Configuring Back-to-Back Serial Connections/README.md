@@ -99,3 +99,5 @@ R2(config-if)# ip address 172.30.100.2 255.255.255.252
    R1# ping 172.30.100.2
    ! Expected Output: Success rate is 100 percent (5/5)
    ```
+
+Author Beyene Bekele 
