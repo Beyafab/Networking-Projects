@@ -151,3 +151,6 @@ Expired translations: 0
 ```
 
 > **Note:** Because Static NAT uses permanent 1-to-1 mappings, translation entries do not time out or expire automatically from the NAT table.
+
+
+Beyene Bekele
