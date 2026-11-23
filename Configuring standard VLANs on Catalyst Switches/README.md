@@ -87,3 +87,4 @@ Sw1# show vlan brief
 | `show vlan brief` | Displays concise list of active VLANs and assigned ports |
 | `show vtp status` | Checks switch VTP operating mode and domain settings |
 | `show interface FastEthernet0/5 switchport` | Displays operational switchport mode and access VLAN details |
+Author : Beyene Bekele
